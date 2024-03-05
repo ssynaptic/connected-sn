@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'pastes.apps.PastesConfig',
 
     'allauth',
     'allauth.account',
@@ -140,3 +141,5 @@ STATIC_ROOT = BASE_DIR / 'static_root'
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
+
+AUTH_USER_MODEL = 'pastes.User'
