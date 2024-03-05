@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "connected-sn"
+version = "0.1.0"
+description = "The CONNected Social Network"
+authors = ["ssynaptic"]
+license = "CC BY-NC 4.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[tool.poetry.group.dev.dependencies]
+django = "^5.0.3"
+django-allauth = "^0.61.1"
+pillow = "^10.2.0"
+tzdata = "^2024.1"
+python-dotenv = "^1.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
