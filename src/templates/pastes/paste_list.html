@@ -1,1 +1,21 @@
 {% extends 'base.html' %}
+{% block head %}
+  <title>Home</title>
+{% endblock head %}
+
+{% block content %}
+  {% if object_list %}
+    {% for paste in object_list %}
+      <a href="{% url 'pastes-app:detail-paste-view' paste.slug %}">
+        <div class='card'>
+        {{ paste.title }}
+        <br>
+        {{ paste.content }}
+        <hr>
+        </div>
+      </a>
+    {% endfor %}
+  {% else %}
+    <p>There are no pastes availables yet. Come back later.
+  {% endif %}
+{% endblock content %}

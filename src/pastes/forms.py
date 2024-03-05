@@ -8,3 +8,7 @@ class CreatePasteForm(forms.ModelForm):
         "title", "content",
         "author", "slug"
         ]
+class UpdatePasteForm(forms.ModelForm):
+    class Meta:
+        model = Paste
+        fields = ["title", "content", "slug"]

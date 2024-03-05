@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  <title>Delete paste</title>
+{% endblock head %}
+{% block content %}
+  <div class="container">
+    <h1>Your are on the delete view, Are you sure to delete?</h1>
+    <form method="post">
+      {% csrf_token %}
+      <button class="btn btn-danger" type="submit">Confirm</button>
+    </form>
+  </div>
+{% endblock content %}
