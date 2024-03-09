@@ -5,6 +5,7 @@
 {% endblock head %}
 
 {% block content %}
+  {% include 'include/navbar.html' %}
   <form method='POST'>
     {% csrf_token %}
     {{ form.as_p }}

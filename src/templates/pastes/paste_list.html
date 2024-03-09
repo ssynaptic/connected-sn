@@ -4,6 +4,7 @@
 {% endblock head %}
 
 {% block content %}
+  {% include 'include/navbar.html' %}
   {% if object_list %}
     {% for paste in object_list %}
       <a href="{% url 'pastes-app:detail-paste-view' paste.slug %}">

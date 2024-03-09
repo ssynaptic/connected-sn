@@ -5,7 +5,7 @@ app_name = 'pastes-app'
 urlpatterns = [
     # path('', )
     path('', views.PasteListView.as_view(),
-    name='list-pastes-views'),
+    name='list-pastes-view'),
     path(r'pastes/create/', views.CreatePasteView.as_view(),
     name='create-paste-view'),
     path('<slug>/', views.DetailPasteView.as_view(),

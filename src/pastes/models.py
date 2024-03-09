@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.template.defaultfilters import slugify
 
 # Create your models here.
 class User(AbstractUser):
@@ -15,8 +16,14 @@ class Paste(models.Model):
     last_updated = models.DateField(auto_now=True, blank=False, null=False)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     slug = models.SlugField(blank=False, null=False)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super().save()
     def __str__(self):
         return self.title
+    class Meta:
+        ordering = ["-publish_date", "-last_updated"]
 
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

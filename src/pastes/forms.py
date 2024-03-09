@@ -4,11 +4,8 @@ from pastes.models import Paste
 class CreatePasteForm(forms.ModelForm):
     class Meta:
         model = Paste
-        fields = [
-        "title", "content",
-        "author", "slug"
-        ]
+        fields = ["title", "content", "author"]
 class UpdatePasteForm(forms.ModelForm):
     class Meta:
         model = Paste
-        fields = ["title", "content", "slug"]
+        fields = ["title", "content"]
