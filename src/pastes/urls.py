@@ -4,6 +4,9 @@ from pastes import views
 app_name = 'pastes-app'
 urlpatterns = [
     # path('', )
+    path('profile/pk=<int:pk>', views.UserProfileView.as_view(),
+    name='user-profile-view'),
+
     path('', views.PasteListView.as_view(),
     name='list-pastes-view'),
     path(r'pastes/create/', views.CreatePasteView.as_view(),

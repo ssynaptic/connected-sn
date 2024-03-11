@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block head %}
+  <title>{{ object.title }}</title>
+{% endblock head %}
+
+{% block content %}
+  {% include 'include/navbar.html' %}
+  {% comment %}
+  <div class='container'>
+    <h1>Details of the paste</h1>
+    <ul>
+      <li>Title: {{ object.title }}</li>
+      <li>Content: {{ object.content}}</li>
+      <hr>
+      <li>Author: {{ object.author}}</li>
+      <li>Created at: {{ object.publish_date }}</li>
+    </ul>
+  </div>
+  {% endcomment %}
+  {{ user.username }}
+  {{ user.first_name }}
+  {{ user.last_name }}
+{% endblock content %}

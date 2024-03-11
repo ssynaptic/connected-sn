@@ -1,22 +1,34 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block head %}
   <title>Home</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/paste_list.css' %}">
 {% endblock head %}
 
 {% block content %}
   {% include 'include/navbar.html' %}
-  {% if object_list %}
-    {% for paste in object_list %}
-      <a href="{% url 'pastes-app:detail-paste-view' paste.slug %}">
-        <div class='card'>
-        {{ paste.title }}
-        <br>
-        {{ paste.content }}
-        <hr>
+  <div class="container-fluid d-flex flex-column align-items-center pt-sm-2">
+    {% if object_list %}
+      {% for paste in object_list %}
+        <div class="card col-7 col-sm-6 col-md-5 col-lg-5 col-xl-4 mb-sm-2">
+          <div class="card-body">
+            <div class="card-title mb-0">
+              <div class="d-flex flex-row justify-content-start align-items-center mb-sm-1" id="user-photo-username">
+                  <img class="me-sm-2" src="{% static 'icons/DefaultProfilePhoto.png' %}"
+                  width="20" height="20" alt="Default User Photo Profile">
+                  {{ user.username }}
+              </div>
+              <p class="d-inline-block mb-2 p-0">{{ paste.title }}</p>
+            </div>
+            <hr class="m-0">
+            <div class="card-text">
+              {{ paste.content }}
+            </div>
+          </div>
         </div>
-      </a>
-    {% endfor %}
-  {% else %}
-    <p>There are no pastes availables yet. Come back later.
-  {% endif %}
+      {% endfor %}
+    {% else %}
+      There are no pastes available
+    {% endif %}
+  </div>
 {% endblock content %}
